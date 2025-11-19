@@ -29,7 +29,6 @@ type AppLayoutProps = {
 
 export function AppLayout({ children }: AppLayoutProps) {
   const { selectedItemNavBar } = useItemNavBar();
-//   const { user, logout } = useAuthStore();
 
     const user = {
     name: "John Doe",

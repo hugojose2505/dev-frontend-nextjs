@@ -5,10 +5,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-
 import { useRouter } from "next/navigation";
 import { NavBar } from "@/components/NavBar";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -19,9 +17,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LogOut, Package, Coins } from "lucide-react";
-import { ReactNode } from "react";
+import { LogOut, Package } from "lucide-react";
+import { ReactNode, useMemo } from "react";
 import { useItemNavBar } from "@/store/useSelectedItemNavBar";
+import { useAuthStore } from "@/store/useAuthStore";
 
 type AppLayoutProps = {
   children: ReactNode;
@@ -29,20 +28,23 @@ type AppLayoutProps = {
 
 export function AppLayout({ children }: AppLayoutProps) {
   const { selectedItemNavBar } = useItemNavBar();
-
-    const user = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    avatarUrl: "/path/to/avatar.jpg",
-    vbucksBalance: 1500,
-  };
   const router = useRouter();
+  const { user, token, expiresAt, clearAuth } = useAuthStore();
+
+  const isAuthenticated = useMemo(() => {
+    if (!token) return false;
+    if (!expiresAt) return true;
+    return expiresAt > Date.now();
+  }, [token, expiresAt]);
 
   const handleLoginClick = () => {
     router.push("/login");
   };
 
-
+  const handleLogout = () => {
+    clearAuth();
+    router.push("/login");
+  };
 
   const initials =
     user?.name
@@ -64,8 +66,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           </div>
 
           <div className="flex items-center gap-4">
-    
-            {!user ? (
+            {!isAuthenticated || !user ? (
               <Button
                 variant="outline"
                 size="sm"
@@ -79,7 +80,9 @@ export function AppLayout({ children }: AppLayoutProps) {
                 <DropdownMenuTrigger className="outline-none">
                   <div className="flex items-center gap-2 text-white">
                     <Avatar className="h-8 w-8 border border-white/30 text-black">
-                      <AvatarImage src={user.avatarUrl} alt={user.name} />
+                      {user.avatarUrl && (
+                        <AvatarImage src={user.avatarUrl} alt={user.name} />
+                      )}
                       <AvatarFallback>{initials}</AvatarFallback>
                     </Avatar>
                     <span className="text-sm font-medium max-w-[140px] truncate">
@@ -111,6 +114,7 @@ export function AppLayout({ children }: AppLayoutProps) {
 
                   <DropdownMenuItem
                     className="cursor-pointer text-red-600 focus:text-red-600"
+                    onClick={handleLogout}
                   >
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Sair</span>

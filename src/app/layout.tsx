@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppLayout } from "@/layout";
 
 export const metadata: Metadata = {
-  title: "Produtos - MaxUp",
-  description: "Desafio técnico Frontend Next.js - MaxUp",
+  title: "MaxUp",
+  description: "Desafio técnico MaxUp",
 };
 
 export default function RootLayout({
@@ -14,9 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body>
-        <AppLayout>{children}</AppLayout>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

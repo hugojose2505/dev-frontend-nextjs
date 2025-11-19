@@ -205,6 +205,9 @@ export default function UsersPage() {
           </AlertDialogHeader>
 
           <AlertDialogFooter>
+             <AlertDialogAction onClick={() => setDeleteOpen(false)}>
+              Cancelar
+            </AlertDialogAction>
             <AlertDialogAction onClick={handleConfirmDelete}>
               Excluir
             </AlertDialogAction>

@@ -61,7 +61,7 @@ export default function Home() {
         <div className="flex items-center justify-end mb-4">
           <Button
             onClick={() => setCreateOpen(true)}
-            className="flex items-center gap-2 bg-[#33cc99] text-black hover:opacity-90"
+            className="flex items-center gap-2 bg-[#568f3e] text-black hover:opacity-90"
             type="button"
           >
             <Plus className="w-4 h-4" />

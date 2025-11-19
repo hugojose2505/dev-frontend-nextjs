@@ -18,9 +18,11 @@ import {
 import { useItemNavBar } from "@/store/useSelectedItemNavBar";
 import { data } from "@/utils/data/itensNavBar";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export function NavBar(props: React.ComponentProps<typeof Sidebar>) {
   const { isMobile, toggleSidebar } = useSidebar();
+  const router = useRouter();
   const activeTeam = data.teams[0];
   const { selectedItemNavBar, setSelectedItemNavBar } = useItemNavBar();
 
@@ -65,8 +67,7 @@ export function NavBar(props: React.ComponentProps<typeof Sidebar>) {
             {data.navMain.map((item) => (
               <SidebarMenuItem key={item.title} className="text-white">
                 <SidebarMenuButton asChild tooltip={item.title}>
-                  <a
-                    href={item.to}
+                  <div
                     className={
                       "flex items-center gap-2 " +
                       (selectedItemNavBar === item.title
@@ -76,11 +77,12 @@ export function NavBar(props: React.ComponentProps<typeof Sidebar>) {
                     onClick={() => {
                       if (isMobile) toggleSidebar?.();
                       setSelectedItemNavBar(item.title);
+                      router.push(item.to);
                     }}
                   >
                     {item.icon && <item.icon />}
                     <span>{item.title}</span>
-                  </a>
+                  </div>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             ))}

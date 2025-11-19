@@ -30,7 +30,6 @@ export function ProductCard({
 
   const handleView = () => {
     if (onView) return onView(product);
-    alert(`Visualizando ${product.title}`);
   };
 
   const handleEdit = () => onEdit?.(product);
@@ -91,7 +90,7 @@ export function ProductCard({
             </Button>
             <Button
               variant="outline"
-              className="bg-[#33cc99] text-black"
+              className="bg-[#568f3e] text-black"
               onClick={handleEdit}
             >
               Editar
@@ -100,7 +99,7 @@ export function ProductCard({
         ) : (
           <Button
             variant="outline"
-            className="bg-[#33cc99] text-black"
+            className="bg-[#568f3e] text-black"
             onClick={handleView}
           >
             Visualizar

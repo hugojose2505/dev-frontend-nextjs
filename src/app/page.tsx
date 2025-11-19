@@ -58,9 +58,7 @@ export default function Home() {
         onSubmit={handleCreateSubmit}
       />
       <div className="p-6 space-y-4">
-        <div className="flex items-center justify-between mb-4">
-          <h1 className="text-2xl font-semibold tracking-tight">Produtos</h1>
-
+        <div className="flex items-center justify-end mb-4">
           <Button
             onClick={() => setCreateOpen(true)}
             className="flex items-center gap-2 bg-[#33cc99] text-black hover:opacity-90"

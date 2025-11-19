@@ -1,7 +1,6 @@
 import { GiClothes } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
-import { IoStorefront } from "react-icons/io5";
-import maxUp from "@/assets/maxup_logo.jpeg";
+import maxUp from "@/assets/icone.jpg";
 
 export const data = {
   teams: [

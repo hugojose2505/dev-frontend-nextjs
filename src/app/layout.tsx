@@ -3,8 +3,8 @@ import "./globals.css";
 import { AppLayout } from "@/layout";
 
 export const metadata: Metadata = {
-  title: "Marketplace de Cosméticos",
-  description: "Desafio de marketplace Fortnite style",
+  title: "Produtos - MaxUp",
+  description: "Desafio técnico Frontend Next.js - MaxUp",
 };
 
 export default function RootLayout({

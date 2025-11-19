@@ -49,8 +49,8 @@ export default function LoginPage() {
     <>
       <Toaster position="top-right" />
 
-      <div className="min-h-screen flex items-center justify-center px-4 bg-[#4c4c4c]">
-        <Card className="w-full max-w-md shadow-2xl border border-slate-800 bg-slate-900/80 backdrop-blur-xl rounded-2xl">
+      <div className="min-h-screen flex items-center justify-center px-4 bg-white">
+        <Card className="w-full max-w-md shadow-2xl border border-slate-800 bg-[#0a3371]  backdrop-blur-xl rounded-2xl">
           <CardHeader className="space-y-3">
             <div className="flex flex-col items-center gap-2">
               <Image
@@ -121,7 +121,7 @@ export default function LoginPage() {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-1 flex items-center justify-center gap-2 bg-[#33cc99] text-slate-950 font-semibold hover:bg-[#29a67a] hover:text-white transition-colors"
+                className="w-full mt-1 flex items-center justify-center gap-2 bg-[#568f3e] text-slate-950 font-semibold hover:bg-[#29a67a] hover:text-white transition-colors"
               >
                 {loading ? (
                   <>

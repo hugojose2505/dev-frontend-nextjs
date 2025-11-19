@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LogOut, Package } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { ReactNode, useMemo } from "react";
 import { useItemNavBar } from "@/store/useSelectedItemNavBar";
 import { useAuthStore } from "@/store/useAuthStore";
@@ -103,14 +103,6 @@ export function AppLayout({ children }: AppLayoutProps) {
                   </DropdownMenuLabel>
 
                   <DropdownMenuSeparator />
-
-                  <DropdownMenuItem
-                    onClick={() => router.push("/inventory")}
-                    className="cursor-pointer"
-                  >
-                    <Package className="mr-2 h-4 w-4" />
-                    <span>Meu Perfil</span>
-                  </DropdownMenuItem>
 
                   <DropdownMenuItem
                     className="cursor-pointer text-red-600 focus:text-red-600"

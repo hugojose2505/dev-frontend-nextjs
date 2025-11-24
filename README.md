@@ -39,3 +39,7 @@ Na **raiz do projeto**, é necessário criar um arquivo .env de variáveis de am
 
 - `.env`  usado para execução **local**
 
+```env
+# Arquivo: .env 
+
+NEXT_PUBLIC_API_URL=https://fakestoreapi.com
